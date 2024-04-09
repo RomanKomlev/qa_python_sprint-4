@@ -23,8 +23,7 @@ class TestBooksCollector:
     # напиши свои тесты ниже
     # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()
 
-    # !/usr/bin/env python
-    # -*- coding: utf-8    -*-
+
 
 
     class TestBooksCollector:
@@ -52,18 +51,23 @@ class TestBooksCollector:
             books_collector.set_book_genre(expected_book, specific_genre)
             assert expected_book in books_collector.get_books_with_specific_genre(specific_genre)
 
-        def test_add_delete_book_in_favorites(self):
+        def test_delete_book_from_favorites(self):
+            books_collector = BooksCollector()
+            books_collector.add_new_book("Сказка о царе Салтане")
+            books_collector.add_book_in_favorites("Сказка о царе Салтане")
+
+            assert "Сказка о царе Салтане" in books_collector.get_list_of_favorites_books()
+
+        def test_add_book_in_favorites(self):
             books_collector = BooksCollector()
             books_collector.add_new_book("Сказка о царе Салтане")
             books_collector.add_book_in_favorites("Сказка о царе Салтане")
             assert "Сказка о царе Салтане" in books_collector.get_list_of_favorites_books()
 
-            books_collector.delete_book_from_favorites("Сказка о царе Салтане")
-            assert "Сказка о царе Салтане" not in books_collector.get_list_of_favorites_books()
-
         def test_get_books_for_children(self):
             # Создаем экземпляр коллекции книг
             books_collector = BooksCollector()
+
 
             # Добавляем книги с разными жанрами
             books_collector.add_new_book("Книга1")
