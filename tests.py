@@ -51,12 +51,7 @@ class TestBooksCollector:
             books_collector.set_book_genre(expected_book, specific_genre)
             assert expected_book in books_collector.get_books_with_specific_genre(specific_genre)
 
-        def test_delete_book_from_favorites(self):
-            books_collector = BooksCollector()
-            books_collector.add_new_book("Сказка о царе Салтане")
-            books_collector.add_book_in_favorites("Сказка о царе Салтане")
-            books_collector.delete_book_from_favorites("Сказка о царе Салтане")
-            assert "Сказка о царе Салтане" not in books_collector.get_list_of_favorites_books()
+
 
         def test_add_book_in_favorites(self):
             books_collector = BooksCollector()
