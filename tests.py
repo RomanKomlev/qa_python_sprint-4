@@ -55,8 +55,8 @@ class TestBooksCollector:
             books_collector = BooksCollector()
             books_collector.add_new_book("Сказка о царе Салтане")
             books_collector.add_book_in_favorites("Сказка о царе Салтане")
-
-            assert "Сказка о царе Салтане" in books_collector.get_list_of_favorites_books()
+            books_collector.delete_book_from_favorites("Сказка о царе Салтане")
+            assert "Сказка о царе Салтане" not in books_collector.get_list_of_favorites_books()
 
         def test_add_book_in_favorites(self):
             books_collector = BooksCollector()
